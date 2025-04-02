@@ -1,0 +1,20 @@
+---
+const imageSrc = ""; 
+---
+<img src="/images/fecha.png" alt="Fecha de la boda" class="responsive-img" />
+
+<style>
+  .responsive-img {
+    width: 100%;
+    max-width: 400px; /* Ajusta el tamaño máximo si es necesario */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  @media (max-width: 1024px) {
+    .responsive-img {
+      max-width: 90%; /* Ajusta el tamaño en móviles */
+    }
+  }
+</style>
