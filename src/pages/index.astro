@@ -22,9 +22,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
             <div class="py-3">
                 <h1 class="title-invite">INVITACIÓN PARA:</h1>
                 <h3 class="names">Vanessa Castaño y Esteban Mejía</h3>
-            </div>
-            <div class="py-3">
-                <h5 class="btn btn-link">Ver invitación</h5>
+                <a href="/invite" class="btn btn-link">Ver invitación</a>
             </div>
         </div>
     </div>
@@ -74,5 +72,17 @@ import "bootstrap/dist/css/bootstrap.min.css";
         font-size: clamp(1rem, 4vw, 6rem); 
         font-family: 'BookAntiqua-Bold', sans-serif;
         text-align: center;
+    }
+
+    html, body {
+        height: 100%;
+        overflow: hidden; /* Evita el scroll */
+        margin: 0; /* Elimina márgenes extra */
+        padding: 0;
+    }
+
+    .container-fluid {
+        height: 100vh; /* Asegura que ocupe el 100% del viewport */
+        overflow: hidden; /* Evita que el contenido cause scroll */
     }
 </style>
