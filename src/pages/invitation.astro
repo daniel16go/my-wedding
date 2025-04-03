@@ -1,0 +1,233 @@
+---
+import Layout from "../layouts/Layout.astro";
+import "bootstrap/dist/css/bootstrap.min.css";
+
+---
+
+<Layout>
+    <div class="container-fluid d-flex flex-column vh-100 text-center">
+        <div class="d-flex flex-column justify-content-center align-items-center flex-grow-1" >
+            <div class="py-3">
+                <img src="/images/frase.png" alt="Icono frase" class="icon-img mb-2" />
+                <h1 class="names">" El amor se compone de una sola alma que habita en dos cuerpos "</h1>
+                <h4 class="names">Aristoteles</h4>
+            </div>
+            <br/>
+            <div class="py-3" id="info-ceremonia">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-md-5 text-center">
+                            <img src="/images/ceremonia.png" alt="Icono Ceremonia" class="icon-img mb-2" />
+                            <h3 class="evento-title">Ceremonia</h3>
+                            <h5 class="evento-lugar">Parroquia Nuestra Señora del Sagrado Corazón</h5>
+                            <h4 class="evento-hora">4:00 p.m</h4>
+                            <button class="btn-ubicacion" id="btn-iglesia">Ubicación</button>
+                        </div>
+                        <div class="col-md-2 d-flex justify-content-center align-items-center">
+                            <div class="linea-separadora"></div>
+                        </div>
+                        <div class="col-md-5 text-center">
+                            <img src="/images/recepcion.png" alt="Icono Recepción" class="icon-img mb-2" />
+                            <h3 class="evento-title">Recepción</h3>
+                            <h5 class="evento-lugar">Hacienda Lindaraja</h5>
+                            <h4 class="evento-hora">6:30 p.m</h4>
+                            <button class="btn-ubicacion" id="btn-recepcion">Ubicación</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br/>
+            <div class="py-3" id="tips">
+                <div class="container">
+                    <div class="text-center">
+                        <h3 class="evento-title">Tips o Recomendaciones</h3>
+                        <br>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-md-5">
+                            <ul class="tips-list">
+                                <li>💌<strong>Solo adultos:</strong> La recepción es un espacio exclusivo para adultos. Agradecemos su comprensión.</li>
+                                <br>
+                                <li>⏳<strong>Sean puntuales:</strong> La ceremonia inicia a las <strong>4:00 p.m.</strong>, sugerimos llegar <strong>3:45 p.m.</strong>.</li>
+                                <br>
+                                <li>📸<strong>Vivan el momento:</strong> Un fotógrafo capturará cada detalle, disfruten sin preocupaciones.</li>
+                                <br>
+                                <li>🎭<strong>Vestimenta:</strong> Elegante formal. El color blanco es exclusivo para la novia.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="py-3" id="confirmar-asistencia">
+                <div class="container">
+                    <div class="text-center">
+                        <button class="btn-ubicacion" id="btn-confirmar">Confirmar asistencia</button>
+                    </div>
+                </div>
+            </div>
+            <br/>
+            <div class="py-3" id="info-adicional">
+                <div class="container">
+                    <div class="text-center">
+                        <h3 class="names">Tu presencia es nuestro mejor regalo</h3>
+                        <br/>
+                        <img src="/images/regalo.png" alt="Icono regalo" class="icon-img-xs mb-2" />
+                        <h3 class="regalo-title">LLUVIA DE SOBRES</h3>
+                        <br/>
+                        <h3 class="names">¡ Gracias por acompañarnos !</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</Layout>
+
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
+
+    function ubicacion(ubicacion: string) {
+        window.location.href = `https://maps.app.goo.gl/${ubicacion}`;
+    }
+
+    function confirmarAsistencia(){
+        window.location.href = `/attendance?id=${id}`;
+    }
+
+    document.getElementById("btn-iglesia")?.addEventListener("click", function () {
+        ubicacion("hZCt5AVUxMw2r8JD7");
+    });
+
+    document.getElementById("btn-recepcion")?.addEventListener("click", function () {
+        ubicacion("jtYdHDwL7dpzGeHv6");
+    });
+
+    document.getElementById("btn-confirmar")?.addEventListener("click", confirmarAsistencia);
+
+</script>
+
+<style>
+    @font-face {
+        font-family: 'Bonheur';
+        src: url('/fonts/bonheur.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'BookAntiqua';
+        src: url('/fonts/book-antiqua.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'BookAntiqua-Bold';
+        src: url('/fonts/book-antiqua-bold.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    .name-principal {
+        font-size: clamp(2rem, 18vw, 12rem); 
+        font-family: 'Bonheur', sans-serif;
+        white-space: nowrap;
+        text-align: center;
+    }
+    .names {
+        font-size: clamp(2rem, 8vw, 6rem); 
+        font-family: 'Bonheur', sans-serif;
+        text-align: center;
+    }
+
+    .title{
+        font-size: clamp(1rem,7vw, 6rem); 
+        font-family: 'BookAntiqua', sans-serif;
+        text-align: center;
+    }
+
+    .title-invite{
+        font-size: clamp(1rem, 4vw, 6rem); 
+        font-family: 'BookAntiqua-Bold', sans-serif;
+        text-align: center;
+    }
+
+    .regalo-title {
+        font-family: 'BookAntiqua-Bold', sans-serif;
+        font-size: 0.8rem;
+        margin-bottom: 10px;
+    }
+
+    .evento-title {
+        font-family: 'BookAntiqua-Bold', sans-serif;
+        font-size: 1.5rem;
+        margin-bottom: 5px;
+    }
+
+    .evento-lugar {
+        font-family: 'BookAntiqua-Bold', sans-serif;
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+
+    .evento-hora {
+        font-family: 'BookAntiqua', sans-serif;
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+
+    .icon-img {
+        width: auto;
+        height: 80px;
+    }
+    
+    .icon-img-xs {
+        width: auto;
+        height: 30px;
+    }
+
+    .btn-ubicacion {
+        font-family: 'BookAntiqua-Bold', sans-serif;
+        font-size: 1rem;
+        padding: 8px 15px;
+        border: 2px solid #000;
+        background: transparent;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .btn-ubicacion:hover {
+        background: #D4AF37;
+        color: white;
+        border-color: #D4AF37;
+    }
+
+    .linea-separadora {
+        width: 2px;
+        height: 100px;
+        background-color: black;
+    }
+
+    .tips-list {
+        list-style: none;
+        padding: 0;
+        font-family: 'BookAntiqua', sans-serif;
+        font-size: 1rem;
+    }
+
+    .tips-list li {
+        margin-bottom: 10px;
+        padding-left: 1.5rem;
+        text-align: left;
+    }
+
+    body {
+        background-image: url('/images/bg-2.png');
+		background-size: cover;
+		background-position: center;
+		background-attachment: fixed;
+    }
+    
+</style>
+
