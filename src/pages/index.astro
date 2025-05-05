@@ -36,7 +36,7 @@ let names = "Invitado Especial";
         const params = new URLSearchParams(window.location.search);
         const id = params.get('id');
 
-        const response = await fetch(`https://my-wedding-back.onrender.com/wedding-invite?id=${id}`);
+        const response = await fetch(`https://my-wedding-back.onrender.com/api/v1/invitation?id=${id}`);
         if (response.ok) {
             const data = await response.json();
             let title = data.title;
